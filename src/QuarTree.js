@@ -1,7 +1,7 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import * as d3 from "d3";
 
-const Treev4 = () => {
+const QuadTree = () => {
   useEffect(() => {
     const margin = { top: 40, right: 10, bottom: 10, left: 10 },
       width = 960 - margin.left - margin.right,
@@ -9,12 +9,12 @@ const Treev4 = () => {
       color = d3
         .scaleOrdinal()
         .range([
-          "red",
-          "green",
-          "blue",
-          "#6b486b",
-          "#a05d56",
-          "#d0743c",
+          "#f14668",
+          "#ffdcdc",
+          "#94ebcd",
+          "#c7ffd8",
+          "#fbaccc",
+          "#ffcc29",
           "#ff8c00",
         ]);
 
@@ -33,7 +33,6 @@ const Treev4 = () => {
       console.log(data);
 
       const root = d3.hierarchy(data, (d) => d.children).sum((d) => d.size);
-
       const tree = treemap(root);
 
       const node = div
@@ -77,18 +76,15 @@ const Treev4 = () => {
   return (
     <div id="app">
       <form>
-        <input type="radio" name="mode" value="size" checked>
-          {" "}
-          Size
-        </input>
-        <input type="radio" name="mode" value="count">
-          {" "}
-          Count
-        </input>
+        <label>
+          <input type="radio" name="mode" value="size" checked /> Size
+        </label>
+        <label>
+          <input type="radio" name="mode" value="count" /> Count
+        </label>
       </form>
-      <svg></svg>
     </div>
   );
 };
 
-export default Treev4;
+export default QuadTree;
