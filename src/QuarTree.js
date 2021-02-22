@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import * as d3 from "d3";
+import Typography from "@material-ui/core/Typography";
 
 const QuadTree = () => {
   useEffect(() => {
@@ -74,7 +75,10 @@ const QuadTree = () => {
   }, []);
 
   return (
-    <div id="app">
+    <>
+      <Typography variant="body1" color="secondary">
+        D3 SquareTreeGraph: Observable Code in React
+      </Typography>
       <form>
         <label>
           <input type="radio" name="mode" value="size" checked /> Size
@@ -83,7 +87,7 @@ const QuadTree = () => {
           <input type="radio" name="mode" value="count" /> Count
         </label>
       </form>
-    </div>
+    </>
   );
 };
 
